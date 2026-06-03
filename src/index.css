@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply overflow-x-hidden font-sans antialiased;
+  }
+
+  body {
+    @apply m-0 overflow-x-hidden bg-black font-normal text-[#ededed];
+  }
+
+  button:not(:disabled) {
+    @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .vc-card {
+    @apply w-full rounded-lg border border-[#333333] bg-[#111111];
+  }
+
+  .vc-card-interactive {
+    @apply vc-card transition-colors duration-200 hover:border-[#555555];
+  }
+
+  .vc-nav-link {
+    @apply flex items-center gap-3 rounded-md px-3 py-2 text-[13px] transition-colors duration-200;
+  }
+
+  .vc-nav-link-active {
+    @apply bg-white/10 text-white hover:text-[#749a53];
+  }
+
+  .vc-nav-link-idle {
+    @apply text-[#888888] hover:bg-white/5 hover:text-[#749a53];
+  }
+
+  /* Boutons & CTA — survol vert UrbaFlor */
+  .vc-btn-primary {
+    @apply rounded-md bg-white px-3 py-2 text-[13px] font-medium text-black hover:bg-[#749a53] hover:text-white;
+  }
+
+  .vc-btn-secondary {
+    @apply rounded-md border border-[#333333] bg-transparent px-3 py-2 text-[13px] font-medium text-white hover:border-[#749a53] hover:bg-[#749a53]/10 hover:text-[#749a53];
+  }
+
+  .vc-btn-icon {
+    @apply flex items-center justify-center rounded-md border border-[#333333] text-white hover:border-[#749a53] hover:bg-[#749a53]/10 hover:text-[#749a53];
+  }
+}
+
+/* Leaflet — popups style Vercel dark */
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #111111 !important;
+  border: 1px solid #333333 !important;
+  box-shadow: none !important;
+  color: #ededed !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  line-height: 1.4 !important;
+}
+
+.leaflet-container {
+  background: #000000 !important;
+  font-family: Inter, Raleway, sans-serif !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(0, 0, 0, 0.75) !important;
+  color: #888888 !important;
+  border-radius: 4px !important;
+}
+
+.leaflet-control-attribution a {
+  color: #749a53 !important;
+}
+
+.leaflet-popup-content a.uf-popup-cta {
+  color: #749a53 !important;
+  text-decoration: none !important;
+}
+
+.leaflet-popup-content a.uf-popup-cta:hover {
+  color: #ffffff !important;
+}
+
+/* Leaflet — zoom Vercel */
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.leaflet-control-zoom a {
+  background: #111111 !important;
+  border: 1px solid #333333 !important;
+  color: #ffffff !important;
+  box-shadow: none !important;
+  width: 28px !important;
+  height: 28px !important;
+  line-height: 26px !important;
+  font-size: 16px !important;
+  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #1a1a1a !important;
+  border-color: #749a53 !important;
+  color: #749a53 !important;
+}
+
+.leaflet-control-zoom-in {
+  border-radius: 6px 6px 0 0 !important;
+}
+
+.leaflet-control-zoom-out {
+  border-radius: 0 0 6px 6px !important;
+  border-top: none !important;
+}
+
+.leaflet-bar {
+  box-shadow: none !important;
+}
+
+/* Marqueurs divIcon — point + halo pulsant */
+.leaflet-div-icon-uf {
+  background: transparent !important;
+  border: none !important;
+}
+
+.uf-map-marker {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uf-map-marker-dot {
+  position: relative;
+  z-index: 2;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background-color: var(--marker-color);
+  box-shadow: 0 0 8px var(--marker-color);
+}
+
+.uf-map-marker-pulse {
+  position: absolute;
+  z-index: 1;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background-color: var(--marker-color);
+  opacity: 0.55;
+  animation: uf-marker-pulse 2s ease-out infinite;
+}
+
+@keyframes uf-marker-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
