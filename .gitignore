@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 node_modules
 dist
 .DS_Store
 *.local
 .vite
+=======
+wp-content/uploads/
+>>>>>>> e6520a747f42bb07e44bff6a53b21892841f3358
